@@ -10,6 +10,8 @@ public class TelaLogin extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+    private static final int LARGURA = 1280;
+    private static final int ALTURA = 720;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -26,8 +28,22 @@ public class TelaLogin extends JFrame {
 
 	public TelaLogin() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
-		contentPane = new JPanel();
+        setTitle("Login - Churrasqueiro");
+        setSize(LARGURA, ALTURA);
+        setResizable(false);
+        setLocationRelativeTo(null);
+
+        java.net.URL url = getClass().getResource("/assets/imagens/iconeJanela.png");
+        if (url != null) {
+            try {
+                java.awt.Image icon = javax.imageio.ImageIO.read(url);
+                setIconImage(icon);
+            } catch (java.io.IOException e) {
+                System.err.println("Falha de I/O ao ler a imagem: " + e.getMessage());
+            }
+        }
+
+        contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 	}
