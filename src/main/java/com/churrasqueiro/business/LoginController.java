@@ -20,29 +20,30 @@ public class LoginController {
 		
 		Optional<Usuario> usuarioOpt = usuarioDAO.buscarPorLogin(login);
 		
-		if (usuarioOpt.isEmpty()) {
-			throw new ControllerException("Credenciais inválidas.");
-		}
+		validarDados(login, senha);
 		
-		System.out.println("Usuario: " + login);
+		if (usuarioOpt.isEmpty()) {
+			throw new ControllerException("Credenciais inválidas");
+		}
 		
 		Usuario usuario = usuarioOpt.get();
-		
-		System.out.println("Senha: " + senha);
-
-
-		
 		String senhaHash = HashPasswordUtil.hashPassword(senha);
-		System.out.println("Senha hasheada: " + senhaHash);
-
 		
-		if (usuario.getSenhaHash().equals(senhaHash)) {
-			System.out.println("DEBUGGGGGGG: " + "Usuário " + usuario.getLogin() + " autenticado como " + usuario.getTipo() + 
-					"\n" + "Senha: " + senhaHash + "\n" + "Senha Pura: " + senha);
-			return usuario;
-		} else {
+		if (!usuario.getSenhaHash().equals(senhaHash)) {
 			throw new ControllerException("Credenciais inválidas.");
 		}
+		return usuario;
 	}
-
+	
+	public void validarDados(String login, String senha) throws ControllerException{
+		if (login.isEmpty() && senha.isEmpty()) {
+			throw new ControllerException("Campos de login e senha vazios.");
+		} else if(login.isEmpty() || login == null) {
+			throw new ControllerException("Campo de login vazio.");
+		} else if(senha.isEmpty() || senha == null){
+			throw new ControllerException("Campo de senha vazio.");
+		} else {
+			System.out.println("Campos preenchidos.\n------------------------------------------------------");
+		}
+	}
 }
