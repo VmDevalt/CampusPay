@@ -138,7 +138,7 @@ public class TelaLogin extends JFrame {
 		panel.add(campoLogin);
 		campoLogin.setColumns(10);
 		campoLogin.setBackground(new Color(227, 202, 187));
-		campoLogin.setBorder(new LineBorder(new Color(191, 63, 63), 2, true));
+		campoLogin.setBorder(new LineBorder(new Color(179, 13, 36), 2, true));
 
 		
 		campoSenha = new JPasswordField();
@@ -148,7 +148,7 @@ public class TelaLogin extends JFrame {
 		campoSenha.setColumns(10);
 		campoSenha.setBounds(321, 316, 454, 31);
 		campoSenha.setBackground(new Color(227, 202, 187));
-		campoSenha.setBorder(new LineBorder(new Color(191, 63, 63), 2));
+		campoSenha.setBorder(new LineBorder(new Color(179, 13, 36), 2));
 
 		panel.add(campoSenha);
 
