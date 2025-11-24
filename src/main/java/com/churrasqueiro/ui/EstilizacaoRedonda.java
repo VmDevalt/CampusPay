@@ -103,6 +103,7 @@ public class EstilizacaoRedonda {
         private final Color corContorno;
         private final int espessuraBorda;
         private final int raioArredondado;
+        private final String textoFantasma;
 
         public CaixaTextoRedonda(String texto, Color contorno, Color fundo, Color corBase, int espessura, int raio) {
             super();
@@ -111,15 +112,15 @@ public class EstilizacaoRedonda {
             this.espessuraBorda = espessura;
             this.raioArredondado = raio;
             this.espacoCor = corBase;
+            this.textoFantasma = espacoTexto;
 
             setOpaque(false);
             setBackground(fundo);
             setBorder(BorderFactory.createEmptyBorder(5, raioArredondado, 5, raioArredondado));
-            
             addFocusListener(new FocusAdapter() {
                 @Override
                 public void focusGained(FocusEvent e) {
-                    if (getText().equals(espacoTexto)) {
+                    if (CaixaTextoRedonda.super.getText().equals(espacoTexto)) {
                         setText("");
                         setForeground(Color.BLACK);
                     }
@@ -157,6 +158,11 @@ public class EstilizacaoRedonda {
             graficoAvancado.drawRoundRect(espessuraBorda / 2, espessuraBorda / 2, getWidth() - espessuraBorda, getHeight() - espessuraBorda, raioArredondado, raioArredondado);
             graficoAvancado.dispose();
         }
+        @Override
+        public String getText() {
+            String txt = super.getText();
+            return txt.equals(textoFantasma) ? "" : txt;
+        }
     }
     public static class CaixaSenhaRedonda extends JPasswordField{
         private final String espacoTextoSenha;
@@ -164,6 +170,7 @@ public class EstilizacaoRedonda {
         private final Color corContornoSenha;
         private final int espessuraBordaSenha;
         private final int raioArredondadoSenha;
+        private final String senhaFantasma;
 
         public CaixaSenhaRedonda(String texto, Color contorno, Color fundo, Color corBase, int espessura, int raio) {
             super();
@@ -172,6 +179,7 @@ public class EstilizacaoRedonda {
             this.espessuraBordaSenha = espessura;
             this.raioArredondadoSenha = raio;
             this.espacoCorSenha = corBase;
+            this.senhaFantasma = espacoTextoSenha;
 
             setOpaque(false);
             setBackground(fundo);
@@ -180,7 +188,7 @@ public class EstilizacaoRedonda {
             addFocusListener(new FocusAdapter() {
                 @Override
                 public void focusGained(FocusEvent e) {
-                    if (getText().equals(espacoTextoSenha)) {
+                    if (CaixaSenhaRedonda.super.getText().equals(espacoTextoSenha)) {
                         setText("");
                         setForeground(Color.BLACK);
                     }
@@ -217,6 +225,11 @@ public class EstilizacaoRedonda {
             graficoAvancado.setColor(corContornoSenha);
             graficoAvancado.drawRoundRect(espessuraBordaSenha / 2, espessuraBordaSenha / 2, getWidth() - espessuraBordaSenha, getHeight() - espessuraBordaSenha, raioArredondadoSenha, raioArredondadoSenha);
             graficoAvancado.dispose();
+        }
+        @Override
+        public char[] getPassword() {
+            String txt = new String(super.getPassword());
+            return txt.equals(senhaFantasma) ? new char[0] : super.getPassword();
         }
     }
 }

@@ -44,10 +44,8 @@ public class TelaLogin extends JFrame {
 
 	public String getSenha() {
 		String senha = new String(campoSenha.getPassword());
-		campoSenha.setText("");
 		return senha;
 	}
-	
 
 	public void autenticar() {
 		String login = getLogin();
