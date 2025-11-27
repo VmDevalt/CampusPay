@@ -54,9 +54,11 @@ public class TelaLogin extends JFrame {
 		
 		try {
 			Usuario usuarioAutenticado = loginController.autenticar(login, senha);
-			JOptionPane.showMessageDialog(this, 
-	                "Login bem-sucedido! Tipo: " + usuarioAutenticado.getTipo(), 
-	                "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(this, "Login bem-sucedido! Bem-vindo, " + usuarioAutenticado.getLogin(), "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+			this.dispose();
+			MenuPrincipal telaPrincipal = new MenuPrincipal();
+			telaPrincipal.setVisible(true);
+			setVisible(false);
 			
 		} catch (ControllerException ex) {
 			 JOptionPane.showMessageDialog(this, ex.getMessage(), "Erro de Login",
