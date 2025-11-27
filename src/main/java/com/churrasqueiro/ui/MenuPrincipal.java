@@ -7,6 +7,8 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -94,6 +96,17 @@ public class MenuPrincipal extends JFrame {
 		botaoSair.setBounds(1133, 39, 83, 38);
 		botaoPedidos.setFont(new Font("SansSerif", Font.BOLD, 45));
         contentPane.add(botaoSair);
+        botaoSair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				TelaLogin telaLogin = new TelaLogin();
+				telaLogin.setVisible(true);
+			}
+		});
+		
+		JLabel labelSelecioneUmaOpcao = new JLabel("Selecione uma opção");
+		labelSelecioneUmaOpcao.setFont(new Font("SansSerif", Font.BOLD, 40));
+		labelSelecioneUmaOpcao.setBounds(437, 178, 523, 58);
         
         JLabel labelEscolhaUmaOpcao = new JLabel("Escolha uma opção");
         labelEscolhaUmaOpcao.setFont(new Font("SansSerif", Font.BOLD, 40));
