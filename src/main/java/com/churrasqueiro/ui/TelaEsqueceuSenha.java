@@ -1,6 +1,7 @@
 package com.churrasqueiro.ui;
 
 import com.churrasqueiro.utils.FontManager;
+import com.churrasqueiro.utils.FontsConstants;
 
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -61,19 +62,29 @@ public class TelaEsqueceuSenha extends JFrame {
         JLabel labelTitulo = new JLabel("Esqueceu a senha?");
         labelTitulo.setHorizontalAlignment(SwingConstants.CENTER);
         labelTitulo.setForeground(corPaletaPreto);
-        labelTitulo.setFont(new Font(monts, Font.PLAIN, 17));
+        labelTitulo.setFont(FontsConstants.MONTSERRAT_BOLD_50);
         labelTitulo.setBounds(349, 50, 400, 32);
         panelBranco.add(labelTitulo);
         
         JLabel labelInstrucoes = new JLabel("<html><div style='text-align: center;'>Digite seu email para troca a senha. Você irá receber um código<br>no seu email onde deverá colocar na página seguinte.</div><html>");
         labelInstrucoes.setHorizontalAlignment(SwingConstants.CENTER);
         labelInstrucoes.setForeground(corPaletaPreto);
-        labelInstrucoes.setFont(new Font("Calibri", Font.PLAIN, 17));
+        labelInstrucoes.setFont(FontsConstants.MONTSERRAT_REGULAR_15);
         labelInstrucoes.setBounds(349, 100, 600, 60);
         panelBranco.add(labelInstrucoes);
 
         JLabel labelEmail = new JLabel("Email");
         labelEmail.setForeground(corPaletaPreto);
+        labelEmail.setFont(FontsConstants.MONTSERRAT_BOLD_20);
+        labelEmail.setBounds(479, 200, 50, 32);
+        panelBranco.add(labelEmail);
+
+        this.campoEmail = new EstilizacaoRedonda.CaixaTextoRedonda("Digite seu email...", corPaletaVermelho, corPaletaBege, corPaletaCinza, 2, 35);
+        campoEmail.setFont(FontsConstants.MONTSERRAT_LIGHT_10);
+        campoEmail.setToolTipText("Digite seu email");
+        campoEmail.setBounds(279, 240, 540, 38);
+        campoEmail.setColumns(10);
+        panelBranco.add(campoEmail);
 
         
         
