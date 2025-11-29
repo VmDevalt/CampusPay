@@ -1,13 +1,12 @@
 package com.churrasqueiro.ui;
 
+import com.churrasqueiro.utils.FontManager;
+
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.SwingConstants;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
 public class TelaEsqueceuSenha extends JFrame {
@@ -15,6 +14,7 @@ public class TelaEsqueceuSenha extends JFrame {
     private JPanel panelVermelho;
     private static final int LARGURA = 1280;
     private static final int ALTURA = 720;
+    private EstilizacaoRedonda.CaixaTextoRedonda campoEmail;
     
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
@@ -61,7 +61,7 @@ public class TelaEsqueceuSenha extends JFrame {
         JLabel labelTitulo = new JLabel("Esqueceu a senha?");
         labelTitulo.setHorizontalAlignment(SwingConstants.CENTER);
         labelTitulo.setForeground(corPaletaPreto);
-        labelTitulo.setFont(new Font("Calibre", Font.PLAIN, 17));
+        labelTitulo.setFont(new Font(monts, Font.PLAIN, 17));
         labelTitulo.setBounds(349, 50, 400, 32);
         panelBranco.add(labelTitulo);
         
@@ -71,7 +71,10 @@ public class TelaEsqueceuSenha extends JFrame {
         labelInstrucoes.setFont(new Font("Calibri", Font.PLAIN, 17));
         labelInstrucoes.setBounds(349, 100, 600, 60);
         panelBranco.add(labelInstrucoes);
-        
+
+        JLabel labelEmail = new JLabel("Email");
+        labelEmail.setForeground(corPaletaPreto);
+
         
         
         
