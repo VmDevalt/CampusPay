@@ -18,6 +18,7 @@ public class FontsConstants {
     public static Font MONTSERRAT_BOLD_50;
     public static Font MONTSERRAT_BOLD_60;
     public static Font MONTSERRAT_EXTRABOLD_40;
+    public static Font MONTSERRAT_EXTRABOLD_50;
 
     static {
         FontManager fontManager = FontManager.getInstance();
@@ -40,6 +41,7 @@ public class FontsConstants {
         MONTSERRAT_BOLD_60 = fontManager.getMontserratBold(60);
 
         MONTSERRAT_EXTRABOLD_40 = fontManager.getMontserratBold(40);
+        MONTSERRAT_EXTRABOLD_50 = fontManager.getMontserratBold(50);
     }
 
     public static void inicioalizarFontes() {

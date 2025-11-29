@@ -16,6 +16,7 @@ public class TelaEsqueceuSenha extends JFrame {
     private static final int LARGURA = 1280;
     private static final int ALTURA = 720;
     private EstilizacaoRedonda.CaixaTextoRedonda campoEmail;
+    private JButton botaoEnviarCodigo;
     
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
@@ -55,7 +56,7 @@ public class TelaEsqueceuSenha extends JFrame {
         final EstilizacaoRedonda.PainelRedondo panelBranco = new EstilizacaoRedonda.PainelRedondo(null, 60, 4, corPaletaBege, null);
         panelBranco.setFocusable(true);
         panelBranco.requestFocusInWindow();
-        panelBranco.setBounds(90, 85, 1098, 505);
+        panelBranco.setBounds(40, 40, 1200, 640);
         panelVermelho.add(panelBranco);
         panelBranco.setLayout(null);
         
@@ -63,31 +64,40 @@ public class TelaEsqueceuSenha extends JFrame {
         labelTitulo.setHorizontalAlignment(SwingConstants.CENTER);
         labelTitulo.setForeground(corPaletaPreto);
         labelTitulo.setFont(FontsConstants.MONTSERRAT_BOLD_50);
-        labelTitulo.setBounds(349, 50, 400, 32);
+        labelTitulo.setBounds(386, 229, 508, 43);
         panelBranco.add(labelTitulo);
         
         JLabel labelInstrucoes = new JLabel("<html><div style='text-align: center;'>Digite seu email para troca a senha. Você irá receber um código<br>no seu email onde deverá colocar na página seguinte.</div><html>");
         labelInstrucoes.setHorizontalAlignment(SwingConstants.CENTER);
         labelInstrucoes.setForeground(corPaletaPreto);
         labelInstrucoes.setFont(FontsConstants.MONTSERRAT_REGULAR_15);
-        labelInstrucoes.setBounds(349, 100, 600, 60);
+        labelInstrucoes.setBounds(410, 311, 460, 32);
         panelBranco.add(labelInstrucoes);
 
         JLabel labelEmail = new JLabel("Email");
         labelEmail.setForeground(corPaletaPreto);
         labelEmail.setFont(FontsConstants.MONTSERRAT_BOLD_20);
-        labelEmail.setBounds(479, 200, 50, 32);
+        labelEmail.setBounds(610, 363, 59, 20);
         panelBranco.add(labelEmail);
 
         this.campoEmail = new EstilizacaoRedonda.CaixaTextoRedonda("Digite seu email...", corPaletaVermelho, corPaletaBege, corPaletaCinza, 2, 35);
         campoEmail.setFont(FontsConstants.MONTSERRAT_LIGHT_10);
         campoEmail.setToolTipText("Digite seu email");
-        campoEmail.setBounds(279, 240, 540, 38);
+        campoEmail.setBounds(344, 393, 592, 37);
         campoEmail.setColumns(10);
         panelBranco.add(campoEmail);
 
-        
-        
+        this.botaoEnviarCodigo = new EstilizacaoRedonda.BotaoRedondo("Enviar código", corPaletaVermelho, corPaletaVermelhoInteracao, corPaletaVermelhoPressionado, 35);
+        botaoEnviarCodigo.setForeground(Color.WHITE);
+        botaoEnviarCodigo.setBackground(corPaletaVermelho);
+        botaoEnviarCodigo.setBounds(509, 451, 261, 36);
+        botaoEnviarCodigo.setFont(FontsConstants.MONTSERRAT_EXTRABOLD_50);
+        panelBranco.add(botaoEnviarCodigo);
+
+        JLabel labelLogo = new JLabel("");
+        labelLogo.setIcon(new ImageIcon("src/main/resources/assets/imagens/logoPequena.png"));
+        labelLogo.setBounds(1145, 587, 60, 58);
+        panelBranco.add(labelLogo);
         
         
         
